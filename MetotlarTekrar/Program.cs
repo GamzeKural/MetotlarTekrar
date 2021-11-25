@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace MetotlarTekrar
 {
@@ -20,17 +21,21 @@ namespace MetotlarTekrar
             ////MerhabaYaz(adet:8); // isim belirterek değer gönderdik.
 
 
-            int intKare = Kare(9);
-            float fltKare = Kare(9.5f);
-            double dblKare = Kare(199.4D);
+            //int intKare = Kare(9);
+            //float fltKare = Kare(9.5f);
+            //double dblKare = Kare(199.4D);
 
-            Console.WriteLine(intKare);
-            Console.WriteLine(fltKare);
-            Console.WriteLine(dblKare);
+            //Console.WriteLine(intKare);
+            //Console.WriteLine(fltKare);
+            //Console.WriteLine(dblKare);
+
+            int[] numbers = new int[] { 2, 3, 4, 5, 6 };
+            List<int> squares = Kare(numbers); //Metotdan gelen liste verisini ... listeye atadık.
+            ListeYaz(squares);
 
 
 
-
+            Console.ReadLine();
 
             // static kullanmadan metotlara nesne üzerinden erişilebilir. Sonra anlatılacak.
 
@@ -75,6 +80,24 @@ namespace MetotlarTekrar
         static float Kare(float sayi)
         {
             return sayi * sayi;
+        }
+        
+        static List<int> Kare(int[] sayilar)
+        {
+            List<int> kareler = new List<int>();
+            for (int i = 0; i < sayilar.Length; i++)
+            {
+                int Kare=sayilar[i] * sayilar[i];
+                kareler.Add(Kare);
+            }
+            return kareler;
+        }
+        static void ListeYaz(List<int> liste)
+        {
+            for (int i = 0; i < liste.Count(); i++)
+            {
+                Console.Write(liste[i]+"  ");
+            }
         }
     }
     
